@@ -43,7 +43,7 @@ class Basket:
         return sum([product.after_promotion(discount_enum) if product.price > CONDITION else product.total_value
                     for product in self.basket])
 
-    def compare_promotion(self) -> t.NoReturn:
+    def compare_promotion(self) -> float:
         """Compare what is better for a customer, full 1% basket discount or chosen product discount."""
         one_percent_value = sum(
             [product.total_value for product in self.basket]) * Discount.whole_basket.value
